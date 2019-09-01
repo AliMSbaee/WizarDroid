@@ -1,24 +1,25 @@
 package org.codepond.wizardroid;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentManager.OnBackStackChangedListener;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import org.codepond.wizardroid.layouts.CustomViewPager;
 import android.util.Log;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentManager.OnBackStackChangedListener;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import org.codepond.wizardroid.infrastructure.Bus;
 import org.codepond.wizardroid.infrastructure.Subscriber;
 import org.codepond.wizardroid.infrastructure.events.StepCompletedEvent;
+import org.codepond.wizardroid.layouts.CustomViewPager;
 import org.codepond.wizardroid.persistence.ContextManager;
 
 import java.io.Closeable;
 
 /**
  * The engine of the Wizard. This class controls the flow of the wizard
- * and is using {@link ViewPager} under the hood. You would normally want to
+ * and is using {@link androidx.viewpager.widget.ViewPager} under the hood. You would normally want to
  * extend {@link WizardFragment} instead of using this class directly and make calls to the wizard API
  * via {@link org.codepond.wizardroid.WizardFragment#wizard} field. Use this
  * class only if you wish to create a custom WizardFragment to control the wizard.
