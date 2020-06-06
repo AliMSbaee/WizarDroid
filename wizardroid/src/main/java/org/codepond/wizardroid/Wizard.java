@@ -1,5 +1,6 @@
 package org.codepond.wizardroid;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.ViewGroup;
 
@@ -108,7 +109,15 @@ public class Wizard implements Closeable, Subscriber {
 
                 //onBackPressed
                 if (backStackEntryCount < getCurrentStepPosition()){
-                    mPager.setCurrentItem(getCurrentStepPosition() - 1);
+                    final Handler handler = new Handler();
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mPager.setCurrentItem(getCurrentStepPosition() - 1);
+                        }
+                    }, 50);
+
                 }
             }
         });
