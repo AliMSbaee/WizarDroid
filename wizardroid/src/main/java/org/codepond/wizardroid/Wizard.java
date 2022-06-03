@@ -265,7 +265,11 @@ public class Wizard implements Closeable, Subscriber {
 	 * @return WizardStep the current WizardStep instance
 	 */
     public WizardStep getCurrentStep() {
-        return ((WizardPagerAdapter)mPager.getAdapter()).getPrimaryItem();
+        WizardStep result=null;
+        if (mPager!=null && mPager.getAdapter() instanceof WizardPagerAdapter) {
+            result = ((WizardPagerAdapter) mPager.getAdapter()).getPrimaryItem();
+        }
+        return result;
 	}
 	
 	/**
